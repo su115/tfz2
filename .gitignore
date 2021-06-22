@@ -1,0 +1,4 @@
+stage/vpc/.terra*
+stage/servers/.terra*
+global/s3/.terra*
+global/s3/terra*
