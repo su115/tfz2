@@ -1,0 +1,16 @@
+--- 
+- 
+  hosts: mysql
+  name: Mysql
+  tasks: 
+    - name: update
+      become: true
+      apt: 
+        cache_valid_time: 3600
+        update_cache: true
+
+    - name: install
+      become: true
+      apt: 
+        name: 
+          - mariadb-server
