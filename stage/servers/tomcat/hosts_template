@@ -1,2 +1,2 @@
-tomcat ansible_host=%ip_server1%	ansible_user=ubuntu 	ansible_ssh_private_key_file=/home/clone8/teraform/t2Ansible/ansibleKey ansible_python_interpreter=/usr/bin/python3
-mysql ansible_host=%ip_server2%	ansible_user=ubuntu 	ansible_ssh_private_key_file=/home/clone8/teraform/t2Ansible/ansibleKey ansible_python_interpreter=/usr/bin/python3
+tomcat ansible_host=%ip_server1%	ansible_user=ubuntu 	 ansible_python_interpreter=/usr/bin/python3
+mysql ansible_host=%ip_server2%	ansible_user=ubuntu 	 ansible_python_interpreter=/usr/bin/python3
