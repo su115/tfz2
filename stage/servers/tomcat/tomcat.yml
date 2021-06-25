@@ -15,4 +15,34 @@
         name: 
           - tomcat9
           - tomcat9-admin
-           
+
+    - name: "web Server start"
+      service:
+              name: "tomcat9"
+              state: started
+              enabled: yes
+
+    - name: Add remote user
+      become: true
+      copy:
+              content: '<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+              <user username="deployer" password="deployer" roles="manager-script" />
+              </tomcat-users>' 
+              dest: /etc/tomcat9/tomcat-users.xml
+  handlers:
+    - name: restart Tomcat
+      service:
+               name: "tomcat9"
+               state: restarted
+
+
+      # sudo mv /etc/tomcat9/tomcat-users.xml /etc/tomcat9/tomcat-users.xml.old
+      #shell: sudo touch /etc/tomcat9/tomcat-users.xml
+      #shell: sudo chmod 777 /etc/tomcat9/tomcat-users.xml 
+      #shell: > /etc/tomcat9/tomcat-users.xml 
+      #shell: sudo chmod 640 /etc/tomcat9/tomcat-users.xml
+      #shell: sudo chown :tomcat /etc/tomcat9/tomcat-users.xml
+      #shell: sudo systemctl restart tomcat9 
